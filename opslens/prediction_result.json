@@ -1,0 +1,346 @@
+{
+  "success": true,
+  "model_id": "set-data-middle-tier-api-dependency-latency-outbound-01-f88e320f",
+  "source_file": "cloud-monitoring-dataset/data/middle-tier-api-dependency-latency/outbound-01.csv",
+  "count": 48,
+  "anomaly_count": 9,
+  "score_semantics": "Higher anomaly_score means more anomalous; it is not a probability.",
+  "predictions": [
+    {
+      "timestamp": "2018-07-07T23:00:00+00:00",
+      "value": 56.033189,
+      "anomaly": false,
+      "anomaly_score": -0.16377510738581608,
+      "decision_function": 0.16377510738581608
+    },
+    {
+      "timestamp": "2018-07-08T00:00:00+00:00",
+      "value": 56.502036,
+      "anomaly": false,
+      "anomaly_score": -0.15640236464523066,
+      "decision_function": 0.15640236464523066
+    },
+    {
+      "timestamp": "2018-07-08T01:00:00+00:00",
+      "value": 57.251425,
+      "anomaly": false,
+      "anomaly_score": -0.15653540482235517,
+      "decision_function": 0.15653540482235517
+    },
+    {
+      "timestamp": "2018-07-08T02:00:00+00:00",
+      "value": 57.232968,
+      "anomaly": false,
+      "anomaly_score": -0.15787172180480652,
+      "decision_function": 0.15787172180480652
+    },
+    {
+      "timestamp": "2018-07-08T03:00:00+00:00",
+      "value": 54.58453,
+      "anomaly": false,
+      "anomaly_score": -0.1513613490921245,
+      "decision_function": 0.1513613490921245
+    },
+    {
+      "timestamp": "2018-07-08T04:00:00+00:00",
+      "value": 55.283169,
+      "anomaly": false,
+      "anomaly_score": -0.14638506323250017,
+      "decision_function": 0.14638506323250017
+    },
+    {
+      "timestamp": "2018-07-08T05:00:00+00:00",
+      "value": 53.189513,
+      "anomaly": false,
+      "anomaly_score": -0.14640474046045815,
+      "decision_function": 0.14640474046045815
+    },
+    {
+      "timestamp": "2018-07-08T06:00:00+00:00",
+      "value": 50.492503,
+      "anomaly": false,
+      "anomaly_score": -0.14545796780859788,
+      "decision_function": 0.14545796780859788
+    },
+    {
+      "timestamp": "2018-07-08T07:00:00+00:00",
+      "value": 48.745654,
+      "anomaly": false,
+      "anomaly_score": -0.14556695391142555,
+      "decision_function": 0.14556695391142555
+    },
+    {
+      "timestamp": "2018-07-08T08:00:00+00:00",
+      "value": 49.458384,
+      "anomaly": false,
+      "anomaly_score": -0.15231561318817743,
+      "decision_function": 0.15231561318817743
+    },
+    {
+      "timestamp": "2018-07-08T09:00:00+00:00",
+      "value": 51.137517,
+      "anomaly": false,
+      "anomaly_score": -0.14592734293647908,
+      "decision_function": 0.14592734293647908
+    },
+    {
+      "timestamp": "2018-07-08T10:00:00+00:00",
+      "value": 45.538805,
+      "anomaly": false,
+      "anomaly_score": -0.10770893134841453,
+      "decision_function": 0.10770893134841453
+    },
+    {
+      "timestamp": "2018-07-08T11:00:00+00:00",
+      "value": 49.629247,
+      "anomaly": false,
+      "anomaly_score": -0.13333971271968292,
+      "decision_function": 0.13333971271968292
+    },
+    {
+      "timestamp": "2018-07-08T12:00:00+00:00",
+      "value": 45.572327,
+      "anomaly": false,
+      "anomaly_score": -0.10772045579296463,
+      "decision_function": 0.10772045579296463
+    },
+    {
+      "timestamp": "2018-07-08T13:00:00+00:00",
+      "value": 68.0,
+      "anomaly": false,
+      "anomaly_score": -0.02123880057687111,
+      "decision_function": 0.02123880057687111
+    },
+    {
+      "timestamp": "2018-07-08T14:00:00+00:00",
+      "value": 74.0,
+      "anomaly": false,
+      "anomaly_score": -0.03515630452936758,
+      "decision_function": 0.03515630452936758
+    },
+    {
+      "timestamp": "2018-07-08T15:00:00+00:00",
+      "value": 82.0,
+      "anomaly": false,
+      "anomaly_score": -0.016267939385452457,
+      "decision_function": 0.016267939385452457
+    },
+    {
+      "timestamp": "2018-07-08T16:00:00+00:00",
+      "value": 94.0,
+      "anomaly": true,
+      "anomaly_score": 0.027329913188684718,
+      "decision_function": -0.027329913188684718
+    },
+    {
+      "timestamp": "2018-07-08T17:00:00+00:00",
+      "value": 108.0,
+      "anomaly": true,
+      "anomaly_score": 0.05484901838580969,
+      "decision_function": -0.05484901838580969
+    },
+    {
+      "timestamp": "2018-07-08T18:00:00+00:00",
+      "value": 53.422555,
+      "anomaly": false,
+      "anomaly_score": -0.06260195426437909,
+      "decision_function": 0.06260195426437909
+    },
+    {
+      "timestamp": "2018-07-08T19:00:00+00:00",
+      "value": 54.670314,
+      "anomaly": false,
+      "anomaly_score": -0.13467539291256686,
+      "decision_function": 0.13467539291256686
+    },
+    {
+      "timestamp": "2018-07-08T20:00:00+00:00",
+      "value": 55.693972,
+      "anomaly": false,
+      "anomaly_score": -0.1412047231173691,
+      "decision_function": 0.1412047231173691
+    },
+    {
+      "timestamp": "2018-07-08T21:00:00+00:00",
+      "value": 57.812869,
+      "anomaly": false,
+      "anomaly_score": -0.1488587228746054,
+      "decision_function": 0.1488587228746054
+    },
+    {
+      "timestamp": "2018-07-08T22:00:00+00:00",
+      "value": 250.0,
+      "anomaly": true,
+      "anomaly_score": 0.10759821550615378,
+      "decision_function": -0.10759821550615378
+    },
+    {
+      "timestamp": "2018-07-08T23:00:00+00:00",
+      "value": 55.33941,
+      "anomaly": false,
+      "anomaly_score": -0.022381135200727376,
+      "decision_function": 0.022381135200727376
+    },
+    {
+      "timestamp": "2018-07-09T00:00:00+00:00",
+      "value": 54.851122,
+      "anomaly": false,
+      "anomaly_score": -0.09585346662090882,
+      "decision_function": 0.09585346662090882
+    },
+    {
+      "timestamp": "2018-07-09T01:00:00+00:00",
+      "value": 54.658305,
+      "anomaly": false,
+      "anomaly_score": -0.10049913372038721,
+      "decision_function": 0.10049913372038721
+    },
+    {
+      "timestamp": "2018-07-09T02:00:00+00:00",
+      "value": 56.852589,
+      "anomaly": false,
+      "anomaly_score": -0.10261757559486401,
+      "decision_function": 0.10261757559486401
+    },
+    {
+      "timestamp": "2018-07-09T03:00:00+00:00",
+      "value": 54.320892,
+      "anomaly": false,
+      "anomaly_score": -0.09525133998364671,
+      "decision_function": 0.09525133998364671
+    },
+    {
+      "timestamp": "2018-07-09T04:00:00+00:00",
+      "value": 0.0,
+      "anomaly": true,
+      "anomaly_score": 0.03341614737504861,
+      "decision_function": -0.03341614737504861
+    },
+    {
+      "timestamp": "2018-07-09T05:00:00+00:00",
+      "value": 48.445703,
+      "anomaly": false,
+      "anomaly_score": -0.027400969649983287,
+      "decision_function": 0.027400969649983287
+    },
+    {
+      "timestamp": "2018-07-09T06:00:00+00:00",
+      "value": 46.833667,
+      "anomaly": false,
+      "anomaly_score": -0.0777852996553482,
+      "decision_function": 0.0777852996553482
+    },
+    {
+      "timestamp": "2018-07-09T07:00:00+00:00",
+      "value": 47.326992,
+      "anomaly": false,
+      "anomaly_score": -0.07747151220892812,
+      "decision_function": 0.07747151220892812
+    },
+    {
+      "timestamp": "2018-07-09T08:00:00+00:00",
+      "value": 44.519679,
+      "anomaly": false,
+      "anomaly_score": -0.0764090078234928,
+      "decision_function": 0.0764090078234928
+    },
+    {
+      "timestamp": "2018-07-09T09:00:00+00:00",
+      "value": 43.795901,
+      "anomaly": false,
+      "anomaly_score": -0.07581883657657829,
+      "decision_function": 0.07581883657657829
+    },
+    {
+      "timestamp": "2018-07-09T10:00:00+00:00",
+      "value": 155.0,
+      "anomaly": true,
+      "anomaly_score": 0.1013934427086206,
+      "decision_function": -0.1013934427086206
+    },
+    {
+      "timestamp": "2018-07-09T11:00:00+00:00",
+      "value": 175.0,
+      "anomaly": true,
+      "anomaly_score": 0.075572342688901,
+      "decision_function": -0.075572342688901
+    },
+    {
+      "timestamp": "2018-07-09T12:00:00+00:00",
+      "value": 195.0,
+      "anomaly": true,
+      "anomaly_score": 0.07177975727546926,
+      "decision_function": -0.07177975727546926
+    },
+    {
+      "timestamp": "2018-07-09T13:00:00+00:00",
+      "value": 215.0,
+      "anomaly": true,
+      "anomaly_score": 0.08319840815434898,
+      "decision_function": -0.08319840815434898
+    },
+    {
+      "timestamp": "2018-07-09T14:00:00+00:00",
+      "value": 47.261667,
+      "anomaly": true,
+      "anomaly_score": 0.031544214020300054,
+      "decision_function": -0.031544214020300054
+    },
+    {
+      "timestamp": "2018-07-09T15:00:00+00:00",
+      "value": 48.82908,
+      "anomaly": false,
+      "anomaly_score": -0.020265927838731157,
+      "decision_function": 0.020265927838731157
+    },
+    {
+      "timestamp": "2018-07-09T16:00:00+00:00",
+      "value": 51.208362,
+      "anomaly": false,
+      "anomaly_score": -0.017953174050902465,
+      "decision_function": 0.017953174050902465
+    },
+    {
+      "timestamp": "2018-07-09T17:00:00+00:00",
+      "value": 52.535156,
+      "anomaly": false,
+      "anomaly_score": -0.021502597456372174,
+      "decision_function": 0.021502597456372174
+    },
+    {
+      "timestamp": "2018-07-09T18:00:00+00:00",
+      "value": 56.957796,
+      "anomaly": false,
+      "anomaly_score": -0.018236639923645992,
+      "decision_function": 0.018236639923645992
+    },
+    {
+      "timestamp": "2018-07-09T19:00:00+00:00",
+      "value": 60.273127,
+      "anomaly": false,
+      "anomaly_score": -0.03654173451215825,
+      "decision_function": 0.03654173451215825
+    },
+    {
+      "timestamp": "2018-07-09T20:00:00+00:00",
+      "value": 60.427632,
+      "anomaly": false,
+      "anomaly_score": -0.04676376906319013,
+      "decision_function": 0.04676376906319013
+    },
+    {
+      "timestamp": "2018-07-09T21:00:00+00:00",
+      "value": 62.847194,
+      "anomaly": false,
+      "anomaly_score": -0.06437482455892152,
+      "decision_function": 0.06437482455892152
+    },
+    {
+      "timestamp": "2018-07-09T22:00:00+00:00",
+      "value": 65.014657,
+      "anomaly": false,
+      "anomaly_score": -0.06787434393310299,
+      "decision_function": 0.06787434393310299
+    }
+  ]
+}
