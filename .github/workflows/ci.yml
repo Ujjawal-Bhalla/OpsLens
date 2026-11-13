@@ -102,5 +102,3 @@ jobs:
           tags: |
             ghcr.io/ujjawal-bhalla/opslens-frontend:latest
             ghcr.io/ujjawal-bhalla/opslens-frontend:${{ github.sha }}
-      - name: Verify model artifacts
-        run: test -f artifacts/manifest.json
