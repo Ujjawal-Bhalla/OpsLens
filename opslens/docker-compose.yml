@@ -1,5 +1,7 @@
+
 services:
   backend:
+    image: ghcr.io/ujjawal-bhalla/opslens-backend:latest
     build:
       context: .
       dockerfile: backend/Dockerfile
@@ -13,6 +15,7 @@ services:
     restart: unless-stopped
 
   frontend:
+    image: ghcr.io/ujjawal-bhalla/opslens-frontend:latest
     build:
       context: .
       dockerfile: frontend/Dockerfile
