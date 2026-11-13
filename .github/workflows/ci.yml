@@ -4,10 +4,11 @@ name: OpsLens CI
 on:
   push:
   pull_request:
-  
+
 permissions:
   contents: read
   packages: write
+
 jobs:
   frontend:
     name: Frontend CI
@@ -63,6 +64,10 @@ jobs:
       - name: Check ML imports
         run: |
           python -c "from features import make_features; from predict import run_prediction; print('ML imports successful')"
+
+      - name: Verify model artifacts
+        run: test -f artifacts/manifest.json
+
   docker:
     name: Build and Publish Docker Images
     runs-on: ubuntu-latest
@@ -102,3 +107,37 @@ jobs:
           tags: |
             ghcr.io/ujjawal-bhalla/opslens-frontend:latest
             ghcr.io/ujjawal-bhalla/opslens-frontend:${{ github.sha }}
+
+  deploy-local:
+    name: Deploy OpsLens Locally
+    runs-on: [self-hosted, linux, x64]
+    needs: [frontend, backend, docker]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    defaults:
+      run:
+        working-directory: opslens
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest images
+        run: docker compose -p opslens pull
+
+      - name: Deploy containers
+        run: docker compose -p opslens up -d --no-build
+
+      - name: Verify deployment
+        run: docker compose -p opslens ps
+
+      - name: Logout from GHCR
+        if: always()
+        run: docker logout ghcr.io
