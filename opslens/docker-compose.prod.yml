@@ -1,0 +1,23 @@
+services:
+  backend:
+    image: ghcr.io/ujjawal-bhalla/opslens-backend:latest
+    container_name: opslens-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_PATH: /data/opslens.db
+    volumes:
+      - opslens_data:/data
+    restart: unless-stopped
+
+  frontend:
+    image: ghcr.io/ujjawal-bhalla/opslens-frontend:latest
+    container_name: opslens-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  opslens_data:
