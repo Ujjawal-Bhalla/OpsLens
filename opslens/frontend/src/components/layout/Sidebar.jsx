@@ -5,7 +5,6 @@ import {
   BrainCircuit,
   Activity,
   ChartNoAxesCombined,
-  Settings,
   ShieldCheck,
   History,
 } from 'lucide-react'
@@ -71,15 +70,7 @@ function Sidebar() {
 
       {/* Bottom section */}
       <div className="mt-auto shrink-0 border-t border-slate-800 p-2 sm:p-4">
-        <button
-          title="Settings"
-          className="flex w-full items-center justify-center gap-3 rounded-lg px-2 py-3 text-sm text-slate-400 hover:bg-slate-900 hover:text-white sm:justify-start sm:px-3"
-        >
-          <Settings size={19} className="shrink-0" />
-          <span className="hidden sm:block">Settings</span>
-        </button>
-
-        <p className="mt-4 hidden px-3 text-xs text-slate-600 sm:block">
+        <p className="px-3 text-xs text-slate-600 sm:block">
           OpsLens v1.0.0
         </p>
       </div>

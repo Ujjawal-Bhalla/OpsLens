@@ -195,7 +195,27 @@ function Detection() {
     timestamp: prediction.timestamp,
     value: prediction.value,
     anomalyValue: prediction.anomaly ? prediction.value : null,
+    severity: prediction.severity,
   }))
+
+  const renderAnomalyMarker = (props) => {
+    const { cx, cy } = props
+    if (cx == null || isNaN(cx) || cy == null || isNaN(cy)) return null
+    return (
+      <g key={`anomaly-point-${cx}-${cy}`}>
+        <circle cx={cx} cy={cy} r={10} fill="#ef4444" fillOpacity={0.35} />
+        <circle
+          cx={cx}
+          cy={cy}
+          r={6}
+          fill="#f97316"
+          stroke="#ffffff"
+          strokeWidth={2}
+        />
+        <circle cx={cx} cy={cy} r={2.5} fill="#ffffff" />
+      </g>
+    )
+  }
 
   const selectedModelObj = models.find((m) => m.model_id === selectedModel)
 
@@ -590,6 +610,16 @@ function Detection() {
                     labelFormatter={(value) =>
                       new Date(value).toLocaleString()
                     }
+                    formatter={(val, name, item) => {
+                      if (name === 'Detected anomalies') {
+                        const sev = item?.payload?.severity
+                        return [
+                          `${val}${sev ? ` (${sev.toUpperCase()} SEVERITY)` : ''}`,
+                          'Anomaly Detected',
+                        ]
+                      }
+                      return [val, name]
+                    }}
                     contentStyle={{
                       backgroundColor: '#0f172a',
                       border: '1px solid #334155',
@@ -606,15 +636,16 @@ function Detection() {
                     name="Observation Value"
                     stroke="#22d3ee"
                     strokeWidth={2}
-                    dot={{ r: 3, fill: '#22d3ee' }}
-                    activeDot={{ r: 6 }}
+                    dot={false}
+                    activeDot={{ r: 5, fill: '#38bdf8', stroke: '#0f172a', strokeWidth: 2 }}
                   />
 
                   <Scatter
                     dataKey="anomalyValue"
                     name="Detected anomalies"
                     fill="#f97316"
-                    shape="circle"
+                    shape={renderAnomalyMarker}
+                    isAnimationActive={false}
                   />
 
                 </ComposedChart>

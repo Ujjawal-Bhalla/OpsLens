@@ -72,6 +72,25 @@ function HistoryDetails() {
       : null,
   }))
 
+  const renderAnomalyMarker = (props) => {
+    const { cx, cy } = props
+    if (cx == null || isNaN(cx) || cy == null || isNaN(cy)) return null
+    return (
+      <g key={`anomaly-point-${cx}-${cy}`}>
+        <circle cx={cx} cy={cy} r={10} fill="#ef4444" fillOpacity={0.35} />
+        <circle
+          cx={cx}
+          cy={cy}
+          r={6}
+          fill="#f97316"
+          stroke="#ffffff"
+          strokeWidth={2}
+        />
+        <circle cx={cx} cy={cy} r={2.5} fill="#ffffff" />
+      </g>
+    )
+  }
+
   const anomalyCount = predictions.filter(
     (prediction) => prediction.anomaly
   ).length
@@ -250,10 +269,16 @@ function HistoryDetails() {
                     borderRadius: '8px',
                     color: '#fff',
                   }}
-                  formatter={(value, name) => [
-                    value ?? 'N/A',
-                    name,
-                  ]}
+                  formatter={(value, name, item) => {
+                    if (name === 'Anomaly') {
+                      const sev = item?.payload?.severity
+                      return [
+                        `${value}${sev ? ` (${sev.toUpperCase()} SEVERITY)` : ''}`,
+                        'Anomaly Detected',
+                      ]
+                    }
+                    return [value ?? 'N/A', name]
+                  }}
                   labelFormatter={(label) => `Observation #${label}`}
                 />
 
@@ -264,14 +289,16 @@ function HistoryDetails() {
                   stroke="#22d3ee"
                   strokeWidth={2}
                   dot={false}
+                  activeDot={{ r: 5, fill: '#38bdf8', stroke: '#0f172a', strokeWidth: 2 }}
                   connectNulls
                 />
 
                 <Scatter
                   dataKey="anomalyValue"
                   name="Anomaly"
-                  fill="#f59e0b"
-                  shape="circle"
+                  fill="#f97316"
+                  shape={renderAnomalyMarker}
+                  isAnimationActive={false}
                 />
               </ComposedChart>
             </ResponsiveContainer>
