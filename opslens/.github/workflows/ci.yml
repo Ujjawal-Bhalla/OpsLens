@@ -53,7 +53,7 @@ jobs:
 
       - name: Compile Python files
         run: |
-          python -m compileall -q backend predict.py features.py
+          python -m compileall -q backend predict.py features.py explain.py
 
       - name: Check ML imports
         run: |

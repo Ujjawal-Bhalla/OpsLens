@@ -12,6 +12,7 @@ COPY backend/ /app/backend/
 # Copy ML prediction code
 COPY predict.py /app/predict.py
 COPY features.py /app/features.py
+COPY explain.py /app/explain.py
 
 # Copy trained models and manifest
 COPY artifacts/ /app/artifacts/

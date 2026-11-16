@@ -59,7 +59,7 @@ jobs:
           pip install -r backend/requirements.txt
 
       - name: Compile Python files
-        run: python -m compileall -q backend predict.py features.py
+        run: python -m compileall -q backend predict.py features.py explain.py
 
       - name: Check ML imports
         run: |
