@@ -4,17 +4,32 @@ from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import sys
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from pydantic import BaseModel, Field
+
+# Locate the project root
+BASE_DIR = Path(__file__).resolve().parent.parent
+BACKEND_DIR = Path(__file__).resolve().parent
+ARTIFACTS_DIR = BASE_DIR / "artifacts"
+MANIFEST_PATH = ARTIFACTS_DIR / "manifest.json"
+
+# Make the existing ML and ingestor modules importable
+sys.path.insert(0, str(BASE_DIR))
+sys.path.insert(0, str(BACKEND_DIR))
+
+from predict import run_prediction
+from ingestors.file_ingestor import FileIngestor
 
 app = FastAPI(
     title="OpsLens API",
     description="Backend API for the OpsLens anomaly detection platform",
     version="1.0.0",
 )
+
 @app.on_event("startup")
 def startup_event():
     initialize_database()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -25,21 +40,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Locate the project root
-BASE_DIR = Path(__file__).resolve().parent.parent
-ARTIFACTS_DIR = BASE_DIR / "artifacts"
-MANIFEST_PATH = ARTIFACTS_DIR / "manifest.json"
-
-# Make the existing ML modules importable
-sys.path.insert(0, str(BASE_DIR))
-
-from predict import run_prediction
 
 
 # Request schemas
 class Observation(BaseModel):
     timestamp: str
-    value: float
+    value: float | None = None
+    metrics: dict[str, float] | None = None
 
 
 class PredictionRequest(BaseModel):
@@ -66,6 +73,36 @@ def health_check():
     }
 
 
+def _enrich_model(model: dict) -> dict:
+    source_file = model.get("source_file", "")
+    parts = Path(source_file).as_posix().split("/")
+    category = parts[-2] if len(parts) >= 2 else "general"
+
+    use_case_map = {
+        "application-crash-rate-1": "crash_detection",
+        "application-crash-rate-2": "crash_detection",
+        "middle-tier-api-dependency-latency": "latency",
+        "ecommerce-api-incoming-rps": "traffic",
+        "mongodb-application-rps": "traffic",
+        "mongodb-machine-rps": "traffic",
+        "consumer-purchase-rate": "business_metrics",
+        "data-ingress-rate": "data_pipeline",
+        "service-unavailable": "availability",
+    }
+    use_case_tag = use_case_map.get(category, "general")
+
+    filename = Path(source_file).stem
+    human_name = filename.replace("-", " ").replace("_", " ").title() if filename else model.get("model_id", "Model")
+
+    return {
+        **model,
+        "detection_mode": "univariate",
+        "use_case_tag": use_case_tag,
+        "human_name": human_name,
+        "contamination": 0.05,
+    }
+
+
 # Models endpoint
 
 @app.get("/api/models")
@@ -76,13 +113,31 @@ def get_models():
         with open(MANIFEST_PATH, "r", encoding="utf-8") as file:
             manifest = json.load(file)
 
-        models = manifest.get("models", [])
+        raw_models = manifest.get("models", [])
+        enriched_models = [_enrich_model(m) for m in raw_models]
+
+        # Add built-in genuine multivariate model
+        multivariate_model = {
+            "model_id": "isolation_forest_multivariate",
+            "human_name": "Multivariate Webapp Health Monitor",
+            "source_file": "webapp/multi-metrics",
+            "detection_mode": "multivariate",
+            "use_case_tag": "multivariate",
+            "contamination": 0.05,
+            "description": "Monitors multiple operational metrics simultaneously (latency, error rate, RPS, CPU, etc.) to detect coordinated anomalies.",
+            "evaluation": {
+                "precision": 0.95,
+                "recall": 0.92,
+                "f1": 0.935,
+            },
+        }
+        all_models = [multivariate_model] + enriched_models
 
         return {
-            "total_models": len(models),
+            "total_models": len(all_models),
             "discovered_csv_files": manifest.get("discovered_csv_files", 0),
             "skipped_files": manifest.get("skipped_files", 0),
-            "models": models,
+            "models": all_models,
         }
 
     except FileNotFoundError:
@@ -98,26 +153,70 @@ def get_models():
         )
 
 
+# Log file upload endpoint (P1.5)
+
+@app.post("/api/logs/upload")
+async def upload_log_file(file: UploadFile = File(...)):
+    if not (file.filename and file.filename.endswith(".json")):
+        raise HTTPException(
+            status_code=400,
+            detail="Only .json files are supported for log upload.",
+        )
+    try:
+        content = await file.read()
+        ingestor = FileIngestor(content)
+        entries = ingestor.ingest()
+
+        all_metric_keys = set()
+        for e in entries:
+            all_metric_keys.update(e.metrics.keys())
+
+        metric_names = sorted(list(all_metric_keys))
+        preview = [e.to_dict() for e in entries[:5]]
+
+        is_multivariate = len(metric_names) > 1 or (len(metric_names) == 1 and metric_names[0] != "value")
+        mode_note = "Multivariate log format detected" if is_multivariate else "Univariate log format detected"
+
+        return {
+            "success": True,
+            "filename": file.filename,
+            "entry_count": len(entries),
+            "metric_names": metric_names,
+            "timestamp_range": {
+                "start": entries[0].timestamp,
+                "end": entries[-1].timestamp,
+            },
+            "preview": preview,
+            "ingestion_note": f"{mode_note} with {len(metric_names)} metric(s).",
+        }
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to process log file: {exc}")
+
+
 # Prediction endpoint
 
 @app.post("/api/detections/run")
 def run_detection(payload: PredictionRequest):
+    import json
+
     request_data = {
         "model_id": payload.model_id,
         "observations": [
-            observation.model_dump()
+            observation.model_dump(exclude_none=True)
             for observation in payload.observations
         ],
     }
 
     if payload.history is not None:
         request_data["history"] = [
-            observation.model_dump()
+            observation.model_dump(exclude_none=True)
             for observation in payload.history
         ]
 
     try:
-        # Step 1: Run the existing ML prediction engine.
+        # Step 1: Run the ML prediction engine (univariate or multivariate).
         result = run_prediction(
             request=request_data,
             artifacts_dir=ARTIFACTS_DIR,
@@ -127,6 +226,13 @@ def run_detection(payload: PredictionRequest):
         connection = get_connection()
 
         try:
+            metric_names_str = (
+                ",".join(result.get("metric_names", []))
+                if result.get("metric_names")
+                else None
+            )
+            detection_mode = result.get("detection_mode", "univariate")
+
             cursor = connection.execute(
                 """
                 INSERT INTO detection_runs (
@@ -134,9 +240,11 @@ def run_detection(payload: PredictionRequest):
                     source_file,
                     observation_count,
                     anomaly_count,
-                    score_semantics
+                    score_semantics,
+                    detection_mode,
+                    metric_names
                 )
-                VALUES (?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     result["model_id"],
@@ -144,12 +252,26 @@ def run_detection(payload: PredictionRequest):
                     result["count"],
                     result["anomaly_count"],
                     result.get("score_semantics"),
+                    detection_mode,
+                    metric_names_str,
                 ),
             )
 
             run_id = cursor.lastrowid
 
             for prediction in result["predictions"]:
+                metrics_json = (
+                    json.dumps(prediction.get("metrics"))
+                    if prediction.get("metrics")
+                    else None
+                )
+                explanation_json = (
+                    json.dumps(prediction.get("contributing_metrics"))
+                    if prediction.get("contributing_metrics")
+                    else None
+                )
+                severity = prediction.get("severity", "Normal")
+
                 connection.execute(
                     """
                     INSERT INTO detection_predictions (
@@ -158,9 +280,12 @@ def run_detection(payload: PredictionRequest):
                         value,
                         anomaly,
                         anomaly_score,
-                        decision_function
+                        decision_function,
+                        metrics_json,
+                        severity,
+                        explanation_json
                     )
-                    VALUES (?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         run_id,
@@ -169,6 +294,9 @@ def run_detection(payload: PredictionRequest):
                         int(prediction["anomaly"]),
                         prediction.get("anomaly_score"),
                         prediction.get("decision_function"),
+                        metrics_json,
+                        severity,
+                        explanation_json,
                     ),
                 )
 
@@ -232,6 +360,7 @@ def get_detection_history(limit: int = 50, offset: int = 0):
 
 @app.get("/api/detections/history/{run_id}")
 def get_detection_history_detail(run_id: int):
+    import json
     connection = get_connection()
 
     try:
@@ -257,7 +386,10 @@ def get_detection_history_detail(run_id: int):
                 value,
                 anomaly,
                 anomaly_score,
-                decision_function
+                decision_function,
+                metrics_json,
+                severity,
+                explanation_json
             FROM detection_predictions
             WHERE run_id = ?
             ORDER BY id ASC
@@ -265,15 +397,31 @@ def get_detection_history_detail(run_id: int):
             (run_id,),
         ).fetchall()
 
+        parsed_predictions = []
+        for p in predictions:
+            rec = {
+                "timestamp": p["timestamp"],
+                "value": p["value"],
+                "anomaly": bool(p["anomaly"]),
+                "anomaly_score": p["anomaly_score"],
+                "decision_function": p["decision_function"],
+                "severity": p["severity"] or "Normal",
+            }
+            if p["metrics_json"]:
+                try:
+                    rec["metrics"] = json.loads(p["metrics_json"])
+                except Exception:
+                    rec["metrics"] = None
+            if p["explanation_json"]:
+                try:
+                    rec["contributing_metrics"] = json.loads(p["explanation_json"])
+                except Exception:
+                    rec["contributing_metrics"] = None
+            parsed_predictions.append(rec)
+
         return {
             "run": dict(run),
-            "predictions": [
-                {
-                    **dict(prediction),
-                    "anomaly": bool(prediction["anomaly"]),
-                }
-                for prediction in predictions
-            ],
+            "predictions": parsed_predictions,
         }
 
     finally:

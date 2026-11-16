@@ -22,8 +22,7 @@ def get_connection():
 
 
 def initialize_database():
-    """Create the detection history tables if they don't exist."""
-
+    """Create the detection history tables if they don't exist and run incremental migrations."""
     connection = get_connection()
 
     try:
@@ -35,7 +34,9 @@ def initialize_database():
                 created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 observation_count INTEGER NOT NULL,
                 anomaly_count INTEGER NOT NULL,
-                score_semantics TEXT
+                score_semantics TEXT,
+                detection_mode TEXT DEFAULT 'univariate',
+                metric_names TEXT
             )
         """)
 
@@ -48,11 +49,28 @@ def initialize_database():
                 anomaly INTEGER NOT NULL,
                 anomaly_score REAL,
                 decision_function REAL,
+                metrics_json TEXT,
                 FOREIGN KEY (run_id)
                     REFERENCES detection_runs(id)
                     ON DELETE CASCADE
             )
         """)
+
+        # Migration: ensure detection_mode and metric_names exist in detection_runs
+        run_cols = [row["name"] for row in connection.execute("PRAGMA table_info(detection_runs)").fetchall()]
+        if "detection_mode" not in run_cols:
+            connection.execute("ALTER TABLE detection_runs ADD COLUMN detection_mode TEXT DEFAULT 'univariate'")
+        if "metric_names" not in run_cols:
+            connection.execute("ALTER TABLE detection_runs ADD COLUMN metric_names TEXT")
+
+        # Migration: ensure metrics_json, severity, and explanation_json exist in detection_predictions
+        pred_cols = [row["name"] for row in connection.execute("PRAGMA table_info(detection_predictions)").fetchall()]
+        if "metrics_json" not in pred_cols:
+            connection.execute("ALTER TABLE detection_predictions ADD COLUMN metrics_json TEXT")
+        if "severity" not in pred_cols:
+            connection.execute("ALTER TABLE detection_predictions ADD COLUMN severity TEXT DEFAULT 'Normal'")
+        if "explanation_json" not in pred_cols:
+            connection.execute("ALTER TABLE detection_predictions ADD COLUMN explanation_json TEXT")
 
         connection.commit()
 

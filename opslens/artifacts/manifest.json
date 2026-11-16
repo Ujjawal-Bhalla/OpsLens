@@ -1,6 +1,6 @@
 {
   "project": "OpsLens",
-  "created_at_utc": "2026-10-30T18:06:42.527203+00:00",
+  "created_at_utc": "2026-11-16T09:41:59.500736+00:00",
   "data_root_name": "data",
   "discovered_csv_files": 60,
   "trained_models": 60,
@@ -13,21 +13,23 @@
       "rows": 347,
       "train_rows": 242,
       "test_rows": 105,
+      "contamination": 0.04132231404958678,
+      "calibrated_threshold": -0.039999999999999994,
       "evaluation": {
         "evaluated_rows": 105,
         "actual_anomalies": 30,
-        "predicted_anomalies": 87,
-        "precision": 0.3218390804597701,
-        "recall": 0.9333333333333333,
-        "f1": 0.47863247863247865,
+        "predicted_anomalies": 22,
+        "precision": 0.9090909090909091,
+        "recall": 0.6666666666666666,
+        "f1": 0.7692307692307693,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            16,
-            59
+            73,
+            2
           ],
           [
-            2,
-            28
+            10,
+            20
           ]
         ]
       }
@@ -39,21 +41,23 @@
       "rows": 697,
       "train_rows": 487,
       "test_rows": 210,
+      "contamination": 0.005,
+      "calibrated_threshold": 0.025000000000000022,
       "evaluation": {
         "evaluated_rows": 210,
         "actual_anomalies": 88,
-        "predicted_anomalies": 135,
-        "precision": 0.6148148148148148,
-        "recall": 0.9431818181818182,
-        "f1": 0.7443946188340808,
+        "predicted_anomalies": 75,
+        "precision": 0.92,
+        "recall": 0.7840909090909091,
+        "f1": 0.8466257668711656,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            70,
-            52
+            116,
+            6
           ],
           [
-            5,
-            83
+            19,
+            69
           ]
         ]
       }
@@ -65,21 +69,23 @@
       "rows": 697,
       "train_rows": 487,
       "test_rows": 210,
+      "contamination": 0.2,
+      "calibrated_threshold": -0.0050000000000000044,
       "evaluation": {
         "evaluated_rows": 210,
         "actual_anomalies": 18,
-        "predicted_anomalies": 3,
+        "predicted_anomalies": 14,
         "precision": 1.0,
-        "recall": 0.16666666666666666,
-        "f1": 0.2857142857142857,
+        "recall": 0.7777777777777778,
+        "f1": 0.875,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             192,
             0
           ],
           [
-            15,
-            3
+            4,
+            14
           ]
         ]
       }
@@ -91,21 +97,23 @@
       "rows": 692,
       "train_rows": 484,
       "test_rows": 208,
+      "contamination": 0.2,
+      "calibrated_threshold": 0.015000000000000013,
       "evaluation": {
         "evaluated_rows": 208,
         "actual_anomalies": 48,
-        "predicted_anomalies": 9,
-        "precision": 1.0,
-        "recall": 0.1875,
-        "f1": 0.3157894736842105,
+        "predicted_anomalies": 50,
+        "precision": 0.62,
+        "recall": 0.6458333333333334,
+        "f1": 0.6326530612244898,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            160,
-            0
+            141,
+            19
           ],
           [
-            39,
-            9
+            17,
+            31
           ]
         ]
       }
@@ -117,21 +125,23 @@
       "rows": 686,
       "train_rows": 480,
       "test_rows": 206,
+      "contamination": 0.09166666666666666,
+      "calibrated_threshold": -0.095,
       "evaluation": {
         "evaluated_rows": 206,
         "actual_anomalies": 28,
-        "predicted_anomalies": 45,
-        "precision": 0.4222222222222222,
-        "recall": 0.6785714285714286,
-        "f1": 0.5205479452054794,
+        "predicted_anomalies": 18,
+        "precision": 0.9444444444444444,
+        "recall": 0.6071428571428571,
+        "f1": 0.7391304347826086,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            152,
-            26
+            177,
+            1
           ],
           [
-            9,
-            19
+            11,
+            17
           ]
         ]
       }
@@ -143,21 +153,23 @@
       "rows": 671,
       "train_rows": 469,
       "test_rows": 202,
+      "contamination": 0.2,
+      "calibrated_threshold": 0.03,
       "evaluation": {
         "evaluated_rows": 202,
         "actual_anomalies": 14,
-        "predicted_anomalies": 5,
+        "predicted_anomalies": 11,
         "precision": 1.0,
-        "recall": 0.35714285714285715,
-        "f1": 0.5263157894736842,
+        "recall": 0.7857142857142857,
+        "f1": 0.88,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             188,
             0
           ],
           [
-            9,
-            5
+            3,
+            11
           ]
         ]
       }
@@ -169,17 +181,19 @@
       "rows": 697,
       "train_rows": 487,
       "test_rows": 210,
+      "contamination": 0.005,
+      "calibrated_threshold": 0.015000000000000013,
       "evaluation": {
         "evaluated_rows": 210,
         "actual_anomalies": 6,
-        "predicted_anomalies": 18,
-        "precision": 0.2777777777777778,
+        "predicted_anomalies": 5,
+        "precision": 1.0,
         "recall": 0.8333333333333334,
-        "f1": 0.4166666666666667,
+        "f1": 0.9090909090909091,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            191,
-            13
+            204,
+            0
           ],
           [
             1,
@@ -195,21 +209,23 @@
       "rows": 697,
       "train_rows": 487,
       "test_rows": 210,
+      "contamination": 0.06570841889117043,
+      "calibrated_threshold": -0.05499999999999999,
       "evaluation": {
         "evaluated_rows": 210,
         "actual_anomalies": 32,
-        "predicted_anomalies": 33,
-        "precision": 0.5757575757575758,
-        "recall": 0.59375,
-        "f1": 0.5846153846153846,
+        "predicted_anomalies": 15,
+        "precision": 0.9333333333333333,
+        "recall": 0.4375,
+        "f1": 0.5957446808510638,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            164,
-            14
+            177,
+            1
           ],
           [
-            13,
-            19
+            18,
+            14
           ]
         ]
       }
@@ -221,21 +237,23 @@
       "rows": 168,
       "train_rows": 117,
       "test_rows": 51,
+      "contamination": 0.005,
+      "calibrated_threshold": 0.05500000000000002,
       "evaluation": {
         "evaluated_rows": 51,
         "actual_anomalies": 7,
-        "predicted_anomalies": 21,
-        "precision": 0.3333333333333333,
-        "recall": 1.0,
-        "f1": 0.5,
+        "predicted_anomalies": 8,
+        "precision": 0.75,
+        "recall": 0.8571428571428571,
+        "f1": 0.8,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            30,
-            14
+            42,
+            2
           ],
           [
-            0,
-            7
+            1,
+            6
           ]
         ]
       }
@@ -247,21 +265,23 @@
       "rows": 1101,
       "train_rows": 770,
       "test_rows": 331,
+      "contamination": 0.08831168831168831,
+      "calibrated_threshold": 0.015000000000000013,
       "evaluation": {
         "evaluated_rows": 331,
         "actual_anomalies": 22,
-        "predicted_anomalies": 12,
-        "precision": 0.75,
-        "recall": 0.4090909090909091,
-        "f1": 0.5294117647058824,
+        "predicted_anomalies": 37,
+        "precision": 0.4864864864864865,
+        "recall": 0.8181818181818182,
+        "f1": 0.6101694915254238,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            306,
-            3
+            290,
+            19
           ],
           [
-            13,
-            9
+            4,
+            18
           ]
         ]
       }
@@ -273,21 +293,23 @@
       "rows": 1104,
       "train_rows": 772,
       "test_rows": 332,
+      "contamination": 0.031088082901554404,
+      "calibrated_threshold": -0.12,
       "evaluation": {
         "evaluated_rows": 332,
         "actual_anomalies": 28,
-        "predicted_anomalies": 114,
-        "precision": 0.24561403508771928,
-        "recall": 1.0,
-        "f1": 0.39436619718309857,
+        "predicted_anomalies": 41,
+        "precision": 0.5853658536585366,
+        "recall": 0.8571428571428571,
+        "f1": 0.6956521739130435,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            218,
-            86
+            287,
+            17
           ],
           [
-            0,
-            28
+            4,
+            24
           ]
         ]
       }
@@ -299,17 +321,19 @@
       "rows": 1105,
       "train_rows": 773,
       "test_rows": 332,
+      "contamination": 0.0129366106080207,
+      "calibrated_threshold": -0.03499999999999999,
       "evaluation": {
         "evaluated_rows": 332,
         "actual_anomalies": 7,
-        "predicted_anomalies": 49,
-        "precision": 0.12244897959183673,
+        "predicted_anomalies": 6,
+        "precision": 1.0,
         "recall": 0.8571428571428571,
-        "f1": 0.21428571428571427,
+        "f1": 0.9230769230769231,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            282,
-            43
+            325,
+            0
           ],
           [
             1,
@@ -325,21 +349,23 @@
       "rows": 1105,
       "train_rows": 773,
       "test_rows": 332,
+      "contamination": 0.00646830530401035,
+      "calibrated_threshold": -0.024999999999999994,
       "evaluation": {
         "evaluated_rows": 332,
         "actual_anomalies": 9,
-        "predicted_anomalies": 63,
-        "precision": 0.1111111111111111,
-        "recall": 0.7777777777777778,
-        "f1": 0.19444444444444445,
+        "predicted_anomalies": 7,
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            267,
-            56
+            322,
+            1
           ],
           [
-            2,
-            7
+            3,
+            6
           ]
         ]
       }
@@ -351,21 +377,23 @@
       "rows": 1105,
       "train_rows": 773,
       "test_rows": 332,
+      "contamination": 0.17205692108667528,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 332,
         "actual_anomalies": 69,
-        "predicted_anomalies": 30,
-        "precision": 0.6666666666666666,
-        "recall": 0.2898550724637681,
-        "f1": 0.40404040404040403,
+        "predicted_anomalies": 75,
+        "precision": 0.52,
+        "recall": 0.5652173913043478,
+        "f1": 0.5416666666666666,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            253,
-            10
+            227,
+            36
           ],
           [
-            49,
-            20
+            30,
+            39
           ]
         ]
       }
@@ -377,21 +405,23 @@
       "rows": 1103,
       "train_rows": 772,
       "test_rows": 331,
+      "contamination": 0.022020725388601035,
+      "calibrated_threshold": 0.10500000000000001,
       "evaluation": {
         "evaluated_rows": 331,
         "actual_anomalies": 34,
-        "predicted_anomalies": 6,
-        "precision": 1.0,
-        "recall": 0.17647058823529413,
-        "f1": 0.3,
+        "predicted_anomalies": 23,
+        "precision": 0.8695652173913043,
+        "recall": 0.5882352941176471,
+        "f1": 0.7017543859649122,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            297,
-            0
+            294,
+            3
           ],
           [
-            28,
-            6
+            14,
+            20
           ]
         ]
       }
@@ -403,21 +433,23 @@
       "rows": 1096,
       "train_rows": 767,
       "test_rows": 329,
+      "contamination": 0.1421121251629726,
+      "calibrated_threshold": -0.03,
       "evaluation": {
         "evaluated_rows": 329,
         "actual_anomalies": 22,
-        "predicted_anomalies": 6,
-        "precision": 1.0,
-        "recall": 0.2727272727272727,
-        "f1": 0.42857142857142855,
+        "predicted_anomalies": 11,
+        "precision": 0.9090909090909091,
+        "recall": 0.45454545454545453,
+        "f1": 0.6060606060606061,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            307,
-            0
+            306,
+            1
           ],
           [
-            16,
-            6
+            12,
+            10
           ]
         ]
       }
@@ -429,17 +461,19 @@
       "rows": 1105,
       "train_rows": 773,
       "test_rows": 332,
+      "contamination": 0.0129366106080207,
+      "calibrated_threshold": 0.010000000000000009,
       "evaluation": {
         "evaluated_rows": 332,
         "actual_anomalies": 5,
-        "predicted_anomalies": 3,
-        "precision": 0.6666666666666666,
+        "predicted_anomalies": 2,
+        "precision": 1.0,
         "recall": 0.4,
-        "f1": 0.5,
+        "f1": 0.5714285714285714,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            326,
-            1
+            327,
+            0
           ],
           [
             3,
@@ -455,17 +489,19 @@
       "rows": 1105,
       "train_rows": 773,
       "test_rows": 332,
+      "contamination": 0.007761966364812419,
+      "calibrated_threshold": -0.014999999999999986,
       "evaluation": {
         "evaluated_rows": 332,
         "actual_anomalies": 4,
-        "predicted_anomalies": 6,
-        "precision": 0.3333333333333333,
+        "predicted_anomalies": 3,
+        "precision": 0.6666666666666666,
         "recall": 0.5,
-        "f1": 0.4,
+        "f1": 0.5714285714285714,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            324,
-            4
+            327,
+            1
           ],
           [
             2,
@@ -481,21 +517,23 @@
       "rows": 1082,
       "train_rows": 757,
       "test_rows": 325,
+      "contamination": 0.0066050198150594455,
+      "calibrated_threshold": -0.039999999999999994,
       "evaluation": {
         "evaluated_rows": 325,
         "actual_anomalies": 7,
-        "predicted_anomalies": 23,
-        "precision": 0.17391304347826086,
-        "recall": 0.5714285714285714,
-        "f1": 0.26666666666666666,
+        "predicted_anomalies": 3,
+        "precision": 1.0,
+        "recall": 0.42857142857142855,
+        "f1": 0.6,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            299,
-            19
+            318,
+            0
           ],
           [
-            3,
-            4
+            4,
+            3
           ]
         ]
       }
@@ -507,17 +545,19 @@
       "rows": 1248,
       "train_rows": 873,
       "test_rows": 375,
+      "contamination": 0.02,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 375,
         "actual_anomalies": 0,
-        "predicted_anomalies": 2,
+        "predicted_anomalies": 1,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            373,
-            2
+            374,
+            1
           ],
           [
             0,
@@ -534,17 +574,19 @@
       "rows": 1248,
       "train_rows": 873,
       "test_rows": 375,
+      "contamination": 0.009163802978235968,
+      "calibrated_threshold": 0.04000000000000001,
       "evaluation": {
         "evaluated_rows": 375,
         "actual_anomalies": 29,
-        "predicted_anomalies": 86,
-        "precision": 0.2441860465116279,
+        "predicted_anomalies": 40,
+        "precision": 0.525,
         "recall": 0.7241379310344828,
-        "f1": 0.3652173913043478,
+        "f1": 0.6086956521739131,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            281,
-            65
+            327,
+            19
           ],
           [
             8,
@@ -560,17 +602,19 @@
       "rows": 1248,
       "train_rows": 873,
       "test_rows": 375,
+      "contamination": 0.012600229095074456,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 375,
         "actual_anomalies": 0,
-        "predicted_anomalies": 3,
+        "predicted_anomalies": 0,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            372,
-            3
+            375,
+            0
           ],
           [
             0,
@@ -587,6 +631,8 @@
       "rows": 1248,
       "train_rows": 873,
       "test_rows": 375,
+      "contamination": 0.030927835051546393,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 375,
         "actual_anomalies": 0,
@@ -614,6 +660,8 @@
       "rows": 1248,
       "train_rows": 873,
       "test_rows": 375,
+      "contamination": 0.09392898052691867,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 375,
         "actual_anomalies": 0,
@@ -641,17 +689,19 @@
       "rows": 1248,
       "train_rows": 873,
       "test_rows": 375,
+      "contamination": 0.016036655211912942,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 375,
         "actual_anomalies": 0,
-        "predicted_anomalies": 2,
+        "predicted_anomalies": 0,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            373,
-            2
+            375,
+            0
           ],
           [
             0,
@@ -668,17 +718,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.03300865800865801,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 24,
+        "predicted_anomalies": 8,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4728,
-            24
+            4744,
+            8
           ],
           [
             0,
@@ -695,21 +747,23 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.005,
+      "calibrated_threshold": -0.024999999999999994,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 49,
-        "predicted_anomalies": 3769,
-        "precision": 0.013000795967100026,
-        "recall": 1.0,
-        "f1": 0.02566788894709272,
+        "predicted_anomalies": 142,
+        "precision": 0.056338028169014086,
+        "recall": 0.16326530612244897,
+        "f1": 0.08376963350785341,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            983,
-            3720
+            4569,
+            134
           ],
           [
-            0,
-            49
+            41,
+            8
           ]
         ]
       }
@@ -721,17 +775,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.005,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 67,
+        "predicted_anomalies": 0,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4685,
-            67
+            4752,
+            0
           ],
           [
             0,
@@ -748,17 +804,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.027326839826839828,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 123,
+        "predicted_anomalies": 66,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4629,
-            123
+            4686,
+            66
           ],
           [
             0,
@@ -775,17 +833,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.03156565656565657,
+      "calibrated_threshold": -0.09,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 3,
-        "predicted_anomalies": 279,
-        "precision": 0.010752688172043012,
+        "predicted_anomalies": 6,
+        "precision": 0.5,
         "recall": 1.0,
-        "f1": 0.02127659574468085,
+        "f1": 0.6666666666666666,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4473,
-            276
+            4746,
+            3
           ],
           [
             0,
@@ -801,21 +861,23 @@
       "rows": 6191,
       "train_rows": 4333,
       "test_rows": 1858,
+      "contamination": 0.01892453265635818,
+      "calibrated_threshold": -0.04999999999999999,
       "evaluation": {
         "evaluated_rows": 1858,
         "actual_anomalies": 38,
-        "predicted_anomalies": 106,
-        "precision": 0.2358490566037736,
-        "recall": 0.6578947368421053,
-        "f1": 0.3472222222222222,
+        "predicted_anomalies": 23,
+        "precision": 0.6956521739130435,
+        "recall": 0.42105263157894735,
+        "f1": 0.5245901639344263,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            1739,
-            81
+            1813,
+            7
           ],
           [
-            13,
-            25
+            22,
+            16
           ]
         ]
       }
@@ -827,6 +889,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.015904572564612324,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -854,21 +918,23 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.055666003976143144,
+      "calibrated_threshold": 0.025000000000000022,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 4,
-        "predicted_anomalies": 3,
-        "precision": 0.3333333333333333,
-        "recall": 0.25,
-        "f1": 0.2857142857142857,
+        "predicted_anomalies": 4,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             211,
             2
           ],
           [
-            3,
-            1
+            2,
+            2
           ]
         ]
       }
@@ -880,6 +946,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.027833001988071572,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -907,21 +975,23 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.015904572564612324,
+      "calibrated_threshold": 0.07500000000000001,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 23,
-        "predicted_anomalies": 2,
+        "predicted_anomalies": 19,
         "precision": 1.0,
-        "recall": 0.08695652173913043,
-        "f1": 0.16,
+        "recall": 0.8260869565217391,
+        "f1": 0.9047619047619048,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             194,
             0
           ],
           [
-            21,
-            2
+            4,
+            19
           ]
         ]
       }
@@ -933,21 +1003,23 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.02584493041749503,
+      "calibrated_threshold": 0.04500000000000001,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 23,
-        "predicted_anomalies": 12,
+        "predicted_anomalies": 18,
         "precision": 1.0,
-        "recall": 0.5217391304347826,
-        "f1": 0.6857142857142857,
+        "recall": 0.782608695652174,
+        "f1": 0.8780487804878049,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             194,
             0
           ],
           [
-            11,
-            12
+            5,
+            18
           ]
         ]
       }
@@ -959,17 +1031,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.005964214711729622,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
-        "predicted_anomalies": 2,
+        "predicted_anomalies": 0,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            215,
-            2
+            217,
+            0
           ],
           [
             0,
@@ -986,6 +1060,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.05168986083499006,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -1013,21 +1089,23 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.009940357852882704,
+      "calibrated_threshold": 0.1,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 23,
-        "predicted_anomalies": 0,
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
+        "predicted_anomalies": 24,
+        "precision": 0.9166666666666666,
+        "recall": 0.9565217391304348,
+        "f1": 0.9361702127659575,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            194,
-            0
+            192,
+            2
           ],
           [
-            23,
-            0
+            1,
+            22
           ]
         ]
       }
@@ -1039,17 +1117,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.017892644135188866,
+      "calibrated_threshold": -0.03499999999999999,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 6,
-        "predicted_anomalies": 8,
-        "precision": 0.375,
+        "predicted_anomalies": 3,
+        "precision": 1.0,
         "recall": 0.5,
-        "f1": 0.42857142857142855,
+        "f1": 0.6666666666666666,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            206,
-            5
+            211,
+            0
           ],
           [
             3,
@@ -1065,21 +1145,23 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.013916500994035786,
+      "calibrated_threshold": 0.06,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 8,
-        "predicted_anomalies": 2,
+        "predicted_anomalies": 7,
         "precision": 1.0,
-        "recall": 0.25,
-        "f1": 0.4,
+        "recall": 0.875,
+        "f1": 0.9333333333333333,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             209,
             0
           ],
           [
-            6,
-            2
+            1,
+            7
           ]
         ]
       }
@@ -1091,21 +1173,23 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.04572564612326044,
+      "calibrated_threshold": 0.020000000000000018,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 19,
-        "predicted_anomalies": 6,
+        "predicted_anomalies": 7,
         "precision": 1.0,
-        "recall": 0.3157894736842105,
-        "f1": 0.48,
+        "recall": 0.3684210526315789,
+        "f1": 0.5384615384615384,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             198,
             0
           ],
           [
-            13,
-            6
+            12,
+            7
           ]
         ]
       }
@@ -1117,17 +1201,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.13518886679920478,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
-        "predicted_anomalies": 0,
+        "predicted_anomalies": 2,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            217,
-            0
+            215,
+            2
           ],
           [
             0,
@@ -1144,6 +1230,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.005964214711729622,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -1171,17 +1259,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.005964214711729622,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
-        "predicted_anomalies": 1,
+        "predicted_anomalies": 0,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            216,
-            1
+            217,
+            0
           ],
           [
             0,
@@ -1198,6 +1288,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.07554671968190854,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -1225,17 +1317,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.02,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
-        "predicted_anomalies": 11,
+        "predicted_anomalies": 4,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            206,
-            11
+            213,
+            4
           ],
           [
             0,
@@ -1252,17 +1346,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.005964214711729622,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
-        "predicted_anomalies": 12,
+        "predicted_anomalies": 0,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            205,
-            12
+            217,
+            0
           ],
           [
             0,
@@ -1279,6 +1375,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.07554671968190854,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -1306,17 +1404,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.06759443339960239,
+      "calibrated_threshold": -0.04999999999999999,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 4,
-        "predicted_anomalies": 6,
-        "precision": 0.3333333333333333,
+        "predicted_anomalies": 4,
+        "precision": 0.5,
         "recall": 0.5,
-        "f1": 0.4,
+        "f1": 0.5,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            209,
-            4
+            211,
+            2
           ],
           [
             2,
@@ -1332,6 +1432,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.08548707753479125,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -1359,6 +1461,8 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.08548707753479125,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 0,
@@ -1386,21 +1490,23 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.005964214711729622,
+      "calibrated_threshold": 0.065,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 8,
-        "predicted_anomalies": 2,
+        "predicted_anomalies": 7,
         "precision": 1.0,
-        "recall": 0.25,
-        "f1": 0.4,
+        "recall": 0.875,
+        "f1": 0.9333333333333333,
         "confusion_matrix_tn_fp_fn_tp": [
           [
             209,
             0
           ],
           [
-            6,
-            2
+            1,
+            7
           ]
         ]
       }
@@ -1412,17 +1518,19 @@
       "rows": 720,
       "train_rows": 503,
       "test_rows": 217,
+      "contamination": 0.02385685884691849,
+      "calibrated_threshold": -0.06999999999999999,
       "evaluation": {
         "evaluated_rows": 217,
         "actual_anomalies": 3,
-        "predicted_anomalies": 2,
-        "precision": 0.5,
+        "predicted_anomalies": 1,
+        "precision": 1.0,
         "recall": 0.3333333333333333,
-        "f1": 0.4,
+        "f1": 0.5,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            213,
-            1
+            214,
+            0
           ],
           [
             2,
@@ -1438,17 +1546,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.005,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 194,
+        "predicted_anomalies": 17,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4558,
-            194
+            4735,
+            17
           ],
           [
             0,
@@ -1465,17 +1575,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.005,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 40,
+        "predicted_anomalies": 3,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4712,
-            40
+            4749,
+            3
           ],
           [
             0,
@@ -1492,17 +1604,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.09848484848484848,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 1168,
+        "predicted_anomalies": 2035,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            3584,
-            1168
+            2717,
+            2035
           ],
           [
             0,
@@ -1519,17 +1633,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.005,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 337,
+        "predicted_anomalies": 77,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4415,
-            337
+            4675,
+            77
           ],
           [
             0,
@@ -1546,21 +1662,23 @@
       "rows": 20160,
       "train_rows": 14112,
       "test_rows": 6048,
+      "contamination": 0.011408730158730158,
+      "calibrated_threshold": -0.075,
       "evaluation": {
         "evaluated_rows": 6048,
         "actual_anomalies": 41,
-        "predicted_anomalies": 324,
-        "precision": 0.12345679012345678,
-        "recall": 0.975609756097561,
-        "f1": 0.2191780821917808,
+        "predicted_anomalies": 21,
+        "precision": 0.9047619047619048,
+        "recall": 0.4634146341463415,
+        "f1": 0.6129032258064516,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            5723,
-            284
+            6005,
+            2
           ],
           [
-            1,
-            40
+            22,
+            19
           ]
         ]
       }
@@ -1572,17 +1690,19 @@
       "rows": 15840,
       "train_rows": 11088,
       "test_rows": 4752,
+      "contamination": 0.02,
+      "calibrated_threshold": 0.0,
       "evaluation": {
         "evaluated_rows": 4752,
         "actual_anomalies": 0,
-        "predicted_anomalies": 257,
+        "predicted_anomalies": 83,
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
         "confusion_matrix_tn_fp_fn_tp": [
           [
-            4495,
-            257
+            4669,
+            83
           ],
           [
             0,

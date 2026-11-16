@@ -147,8 +147,28 @@ function ModelDetails() {
             <div className="min-w-0">
               <p className="text-sm text-slate-500">Model Details</p>
               <h1 className="wrap-break-word text-xl font-bold text-white">
-                {model.source_file?.split('/').pop() || model.model_id}
+                {model.human_name || model.source_file?.split('/').pop() || model.model_id}
               </h1>
+              <div className="flex flex-wrap items-center gap-2 mt-2">
+                <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium border ${
+                  model.detection_mode === 'multivariate'
+                    ? 'bg-purple-500/10 text-purple-400 border-purple-500/20'
+                    : 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20'
+                }`}>
+                  {model.detection_mode === 'multivariate' ? 'Multivariate' : 'Univariate'}
+                </span>
+                <span className="rounded bg-slate-800 px-2.5 py-0.5 text-xs text-slate-300 border border-slate-700">
+                  Category: {model.use_case_tag || 'general'}
+                </span>
+                <span className="rounded bg-slate-800 px-2.5 py-0.5 text-xs text-slate-300 border border-slate-700">
+                  Contamination: {model.contamination ?? 0.05}
+                </span>
+              </div>
+              {model.description && (
+                <p className="mt-3 text-sm text-slate-300">
+                  {model.description}
+                </p>
+              )}
             </div>
           </div>
 
