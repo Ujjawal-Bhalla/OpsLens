@@ -198,7 +198,6 @@ function Detection() {
   }))
 
   const selectedModelObj = models.find((m) => m.model_id === selectedModel)
-  const isMultivariate = result?.detection_mode === 'multivariate' || selectedModelObj?.detection_mode === 'multivariate'
 
   return (
     <div className="w-full min-w-0 space-y-8">
